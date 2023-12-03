@@ -24,7 +24,8 @@
           <label for="nombre">Nombre y Apellido:</label>
           <input type="text" id="nombre" name="nombre" v-model="editedName">
           <span v-if="!isNameValid" class="error-message">
-          El nombre y apellido deben contener solo letras y permiten espacios.Asegúrese de ingresar al menos un nombre y un apellido, y de que cada palabra tenga al menos 4 caracteres.
+            El nombre y apellido deben contener solo letras y permiten espacios.Asegúrese de ingresar al menos un nombre y
+            un apellido, y de que cada palabra tenga al menos 4 caracteres.
           </span>
 
           <label for="correo">Correo:</label>
@@ -116,6 +117,7 @@ export default defineComponent({
     this.loadCurrentUser();
   },
   methods: {
+
     loadCurrentUser() {
       const currentUserString = localStorage.getItem('currentUser');
       if (currentUserString) {
@@ -125,10 +127,11 @@ export default defineComponent({
         this.editedEmail = this.currentUser.email;
         this.editedTelefono = String(this.currentUser.telefono);
       }
-
-      const storedProfileImage = localStorage.getItem(`profileImage_${this.currentUser.username}`);
-      if (storedProfileImage) {
-        this.currentUser.profileImage = storedProfileImage;
+      if (this.currentUser) {
+        const storedProfileImage = localStorage.getItem(`profileImage_${this.currentUser.username}`);
+        if (storedProfileImage) {
+          this.currentUser.profileImage = storedProfileImage;
+        }
       }
     },
     handleImageChange(event: Event) {
@@ -236,7 +239,6 @@ export default defineComponent({
       const curso = cursos.find((c) => c.id === cursoId);
       return curso ? curso.titulo : 'Curso no encontrado';
     },
-
   },
 });
 </script>
