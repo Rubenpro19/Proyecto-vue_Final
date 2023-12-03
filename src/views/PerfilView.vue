@@ -12,9 +12,12 @@
       <div class="cursos-asociados">
         <h2>Cursos Asociados</h2>
         <ul class="cursos-lista">
-          <router-link v-for="cursoId in currentUser.cursos" :to="{ name: cursoId }" :key="cursoId" class="curso-item">
-            {{ obtenerTituloCurso(cursoId) }}
-          </router-link>
+          <div v-for="cursoId in currentUser.cursos" :key="cursoId" class="curso-item">
+            <router-link :to="{ name: cursoId }">
+              {{ obtenerTituloCurso(cursoId) }}
+            </router-link>
+            <button @click="removeCurso(cursoId)" class="quitar-curso">Quitar del perfil</button>
+          </div>
         </ul>
       </div>
 
@@ -233,6 +236,21 @@ export default defineComponent({
     uploadImage(image: File): string {
       const imageURL = URL.createObjectURL(image);
       return imageURL;
+    },
+    removeCurso(cursoId: string) {
+      this.currentUser.cursos = (this.currentUser.cursos || []).filter((id) => id !== cursoId);
+
+      localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+
+      const userListString = localStorage.getItem('userList');
+      if (userListString) {
+        const userList: User[] = JSON.parse(userListString);
+        const index = userList.findIndex(user => user.username === this.currentUser.username);
+        if (index !== -1) {
+          userList[index] = { ...this.currentUser };
+          localStorage.setItem('userList', JSON.stringify(userList));
+        }
+      }
     },
     // Método para obtener el título de un curso por su ID
     obtenerTituloCurso(cursoId: string): string {
