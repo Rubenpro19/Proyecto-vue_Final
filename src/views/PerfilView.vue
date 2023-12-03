@@ -69,7 +69,6 @@
   </section>
 </template>
 
-
 <script lang="ts">
 import { defineComponent } from 'vue';
 
@@ -80,7 +79,7 @@ interface User {
   username: string;
   password: string;
   profileImage: string;
-  cursos?: string[]; // Agrega la propiedad cursos como un array de strings
+  cursos?: string[];
 }
 
 const cursos = [
@@ -97,23 +96,27 @@ export default defineComponent({
     return {
       currentUser: {} as User,
       selectedImage: null as File | null,
+
       editedName: '',
       editedEmail: '',
       editedTelefono: '',
       currentPassword: '',
       newPassword: '',
       confirmPassword: '',
+
       isCurrentPasswordValid: true,
       isNewPasswordValid: true,
       isConfirmPasswordValid: true,
-      passwordRegex: /^.{8,}$/,
-      alertMessage: '',
       isNameValid: true,
       isEmailValid: true,
       isTelefonoValid: true,
+
+      passwordRegex: /^.{8,}$/,
       nameRegex: /^[a-zA-ZÀ-ÿ]+(\s[a-zA-ZÀ-ÿ]{4,}){1,15}$/,
       emailRegex: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
       telRegex: /^\d{10}$/,
+
+      alertMessage: '',
     };
   },
   mounted() {
@@ -372,7 +375,6 @@ p {
 }
 
 .cursos-lista {
-  list-style-type: none;
   padding: 0;
 }
 
@@ -381,14 +383,33 @@ p {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  display: block;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  transition: background-color 0.3s;
+}
+
+.curso-item a{
   text-decoration: none;
   color: #333;
-  transition: background-color 0.3s;
 }
 
 .curso-item:hover {
   background-color: #f0f0f0;
+}
+
+.quitar-curso {
+  background-color: #ff6666;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.quitar-curso:hover {
+  background-color: #ff4d4d;
 }
 
 .error {

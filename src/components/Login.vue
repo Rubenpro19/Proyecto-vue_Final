@@ -1,8 +1,11 @@
 <template>
   <section id="Formulario">
     <div class="contenedor">
+
       <h1>Iniciar Sesión</h1>
+      
       <form @submit.prevent="handleSubmit">
+
         <label for="username">Usuario:</label>
         <input v-model="username" type="text" placeholder="Ingrese su usuario" id="username" name="username" required
           @input="handleUsernameInput"
@@ -34,7 +37,6 @@
 interface User {
   username: string;
   password: string;
-  // Otros campos si es necesario
 }
 export default {
   data() {

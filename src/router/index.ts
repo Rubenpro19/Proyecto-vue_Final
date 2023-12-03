@@ -59,10 +59,6 @@ const router = createRouter({
         name: 'Perfil',
         component: () => import ('../views/PerfilView.vue')
       }
-      
   ]
-  
-}
-)
+})
 export default router
-

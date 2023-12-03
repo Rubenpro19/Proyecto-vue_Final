@@ -77,17 +77,13 @@ header p a{
 }
 
 @media (max-width: 600px) {
-    p {
-        font-size: 1.5em;
-    }
-
     header .logo {
         padding: 10px;
-        font-size: 1.2em;
     }
 
     header nav {
         padding: 10px;
+        font-size: 1.1em;
     }
 }
 </style>
