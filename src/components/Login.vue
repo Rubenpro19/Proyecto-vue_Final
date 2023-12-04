@@ -1,9 +1,7 @@
 <template>
   <section id="Formulario">
     <div class="contenedor">
-
       <h1>Iniciar Sesión</h1>
-      
       <form @submit.prevent="handleSubmit">
 
         <label for="username">Usuario:</label>
@@ -133,15 +131,10 @@ export default {
 };
 </script>
 
-
 <style scoped>
-h1 {
-  font-size: 3.5em;
-}
+h1 { font-size: 3.5em; }
 
-p {
-  font-size: 1.25em;
-}
+p { font-size: 1.25em; }
 
 #Formulario {
   display: flex;

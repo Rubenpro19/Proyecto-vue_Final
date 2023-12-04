@@ -20,5 +20,4 @@ import '../assets/cursos.css'
     </section>
 </template>
 
-
 <style></style>

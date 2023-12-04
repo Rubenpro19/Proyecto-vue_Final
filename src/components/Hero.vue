@@ -1,6 +1,3 @@
-<script setup lang="ts">
-</script>
-
 <template>
     <section id="hero">
         <h1>Aprende y Crece <br>con los Mejores</h1>
@@ -12,14 +9,9 @@
 </template>
 
 <style scoped>
-h1 {
-    font-size: 4.5em;
-}
+h1 { font-size: 4.5em; }
 
-p {
-    font-size: 1.80em;
-}
-
+p { font-size: 1.80em; }
 #hero {
     display: flex;
     flex-direction: column;
@@ -35,7 +27,6 @@ p {
     background-size: cover;
     background-position: center center;
 }
-
 button {
     font-size: 1.5em;
     font-weight: bold;
@@ -45,14 +36,14 @@ button {
     box-shadow: 2px 2px 10px rgb(0, 0, 0);
     background-color: blueviolet;
 }
-
 button a {
     color: white;
     text-decoration: none;
     padding: 5px 12px;
 }
-
-button:hover {
-    background-color: rgb(74, 30, 112);
-}
+button:hover { background-color: rgb(74, 30, 112); }
 </style>
+
+<script setup lang="ts">
+</script>
+

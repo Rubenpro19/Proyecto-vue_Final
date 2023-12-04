@@ -78,7 +78,6 @@ const agregarCurso = (cursoId: string) => {
             alert(`El ${cursoId} ya está en el perfil.`);
 
         }
-
     }
 };
 </script>

@@ -19,10 +19,7 @@ import '../assets/cursos.css'
             </div>
         </div>
     </section>
-
 </template>
   
-
 <style scoped>
-
 </style>

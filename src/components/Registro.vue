@@ -127,7 +127,6 @@ export default {
                 }
             }
         },
-
         getNameErrorMessage() {
             if (!this.isNameValid) {
                 return 'El nombre y apellido deben contener solo letras y permiten espacios. Asegúrese de ingresar al menos un nombre y un apellido, y de que cada palabra tenga al menos 4 caracteres.';
